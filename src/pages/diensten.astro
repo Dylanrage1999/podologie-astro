@@ -1,0 +1,38 @@
+---
+import Layout from '../layouts/Layout.astro';
+import ServiceCard from '../components/ServiceCard.astro';
+
+const diensten = [
+  {
+    title: "Podologisch onderzoek",
+    description: "Grondige analyse van voetstructuur, looppatroon en klachten. Dit vormt de basis voor een effectieve behandeling.",
+    image: "/images/voetonderzoek.jpg"
+  },
+  {
+    title: "Therapeutische zolen",
+    description: "Op maat gemaakte zolen die ondersteuning bieden en pijnklachten verminderen voor een beter comfort.",
+    image: "/images/zolen.jpg"
+  },
+  {
+    title: "Sportpodologie",
+    description: "Preventie en behandeling van sportgerelateerde voet- en houdingsproblemen om blessures te vermijden.",
+    image: "/images/sport.jpg"
+  }
+];
+---
+
+<Layout title="Onze diensten">
+  <section class="max-w-6xl mx-auto px-4 py-16">
+    <h1 class="text-3xl font-semibold text-primary mb-12 text-center">Onze diensten</h1>
+
+    <div class="grid gap-8 md:grid-cols-3">
+      {diensten.map(dienst => (
+        <ServiceCard 
+          title={dienst.title} 
+          description={dienst.description} 
+          image={dienst.image} 
+        />
+      ))}
+    </div>
+  </section>
+</Layout>

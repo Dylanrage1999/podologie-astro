@@ -1,5 +1,8 @@
-// @ts-check
 import { defineConfig } from 'astro/config';
 
-// https://astro.build/config
-export default defineConfig({});
+export default defineConfig({
+  base: '/',
+  output: 'static',
+  site: 'https://jouw-domein.github.io/jouw-repository/', // Pas aan naar jouw GitHub Pages URL
+});
+// Deze configuratie is voor een Astro-project dat wordt gehost op GitHub Pages

@@ -1,0 +1,24 @@
+---
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+const { title } = Astro.props;
+---
+<html lang="nl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{title} | Podologie Sole Solutions</title>
+    <meta name="description" content="Podologische zorg en therapie op maat in een professionele en warme omgeving." />
+    <meta property="og:title" content="{title} | Podologie Sole Solutions" />
+    <meta property="og:description" content="Podologische zorg en therapie op maat in een professionele en warme omgeving." />
+    <meta property="og:image" content="/images/podoloog-aan-werk.jpg" />
+    <link href="/styles.css" rel="stylesheet" />
+  </head>
+  <body class="font-sans text-gray-800 bg-white">
+    <Header />
+    <main class="min-h-screen">
+      <slot />
+    </main>
+    <Footer />
+  </body>
+</html>
