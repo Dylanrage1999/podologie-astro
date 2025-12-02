@@ -4,7 +4,8 @@ module.exports = {
     extend: {
       colors: {
         primary: '#5B9BD5',        // licht medisch blauw
-        'primary-dark': '#3A6CA8', // donkerder blauw voor hover etc.
+        'primary-dark': '#25548dff', // donkerder blauw voor hover etc.
+        'medisch-blauw': '#5B9BD5',
       },
     },
   },

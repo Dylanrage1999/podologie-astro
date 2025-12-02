@@ -1,48 +1,74 @@
 ---
-import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 const { title } = Astro.props;
+const isHome = Astro.url.pathname === '/';
 ---
 
 <html lang="nl" class="scroll-smooth">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>{title} | Podologie Sole Solutions</title>
     <meta name="description" content="Professionele podologie in jouw buurt. Voetonderzoek, steunzolen en meer." />
     <link rel="stylesheet" href="/styles.css" />
   </head>
-  <body class="bg-white text-gray-800 font-sans">
+  <body class="bg-gray-50 text-gray-800 font-sans min-h-screen flex flex-col">
 
-    <Header />
+    <header
+      id="site-header"
+      class={`fixed top-0 left-0 w-full z-50 transition-colors duration-300 ease-in-out ${
+        isHome ? 'bg-transparent' : 'bg-medisch-blauw'
+      }`}
+      style="height: 72px;"
+    >
+      <div class="max-w-6xl mx-auto px-4 py-4 flex justify-between items-center h-full">
+        <a href="/" class="block">
+          <img src="/images/logo.png" alt="Podologie Sole Solutions" class="h-10 md:h-12" />
+        </a>
+        <nav class={`space-x-6 font-medium transition-colors duration-300 ease-in-out ${
+          isHome ? 'text-white' : 'text-gray-800'
+        }`}>
+          <a href="/" class="hover:text-primary-dark">Home</a>
+          <a href="/diensten" class="hover:text-primary-dark">Diensten</a>
+          <a href="/contact" class="hover:text-primary-dark">Contact</a>
+          <a href="/afspraken" class="hover:text-primary-dark">Afspraak maken</a>
+        </nav>
+      </div>
+    </header>
 
-    <main class="pt-[72px]">
+    <main class={`flex-grow ${isHome ? '' : 'pt-20 px-4 max-w-6xl mx-auto'}`}>
       <slot />
     </main>
 
     <Footer />
 
-    <script type="module">
-      const header = document.getElementById('site-header');
-      window.addEventListener('scroll', () => {
-        if (!header) return;
-        if (window.scrollY > 50) {
-          header.classList.remove('bg-transparent');
-          header.classList.add('bg-white', 'bg-opacity-90', 'backdrop-blur-md', 'shadow-md');
-          header.querySelectorAll('a').forEach(el => {
-            el.classList.remove('text-white');
-            el.classList.add('text-gray-800');
-          });
-        } else {
-          header.classList.add('bg-transparent');
-          header.classList.remove('bg-white', 'bg-opacity-90', 'backdrop-blur-md', 'shadow-md');
-          header.querySelectorAll('a').forEach(el => {
-            el.classList.remove('text-gray-800');
-            el.classList.add('text-white');
-          });
-        }
+<script type="module">
+  const header = document.getElementById('site-header');
+  const navLinks = header.querySelectorAll('nav a');
+
+  window.addEventListener('scroll', () => {
+    if(window.scrollY > 50) {
+      header.classList.remove('bg-transparent');
+      header.classList.add('bg-medisch-blauw');
+
+      navLinks.forEach(el => {
+        el.classList.remove('text-white');
+        el.classList.add('text-white');
+        el.classList.add('hover:text-primary-dark');  // hover naar primary-dark
       });
-    </script>
+    } else {
+      header.classList.add('bg-transparent');
+      header.classList.remove('bg-medisch-blauw');
+
+      navLinks.forEach(el => {
+        el.classList.remove('text-gray-800');
+        el.classList.add('hover:text-primary-dark'); // hover verwijderen
+        el.classList.add('text-white');
+      });
+    }
+  });
+</script>
+
 
   </body>
 </html>

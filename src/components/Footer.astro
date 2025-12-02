@@ -1,8 +1,54 @@
 ---
+const currentYear = new Date().getFullYear();
 ---
 
-<footer class="bg-white mt-16 border-t">
-  <div class="max-w-6xl mx-auto px-4 py-8 text-center text-sm text-gray-500">
-    &copy; {new Date().getFullYear()} Podologie Sole Solutions. Alle rechten voorbehouden.
+<footer class="bg-gray-100 text-gray-700 py-12 mt-16">
+  <div class="max-w-6xl mx-auto px-4 grid grid-cols-1 md:grid-cols-3 gap-8">
+
+    <!-- Contactgegevens -->
+    <div>
+      <h3 class="text-xl font-semibold mb-4">Podologie Sole Solutions</h3>
+      <p class="mb-2">Samen terug op het rechte pad</p>
+      <address class="not-italic mb-4">
+        Gauwstraat 6/1<br />
+        9660 Brakel
+      </address>
+      <p>
+        Telefoon: <a href="tel:+3245663875" class="text-primary hover:underline">+32 456 66 38 75</a>
+      </p>
+      <p>
+        E-mail: <a href="mailto:info@podologiesolesolutions.be" class="text-primary hover:underline">info@podologiesolesolutions.be</a>
+      </p>
+      <p>Riziv-Nummer: 5-70951-88-701</p>
+    </div>
+
+    <!-- Handige Links -->
+    <div>
+      <h3 class="text-xl font-semibold mb-4">Handige Links</h3>
+      <ul class="space-y-2">
+        <li><a href="/" class="hover:text-primary transition">Home</a></li>
+        <li><a href="/diensten" class="hover:text-primary transition">Diensten</a></li>
+        <li><a href="/contact" class="hover:text-primary transition">Contact</a></li>
+        <li><a href="/afspraken" class="hover:text-primary transition">Afspraken</a></li>
+      </ul>
+    </div>
+
+    <!-- Diensten -->
+    <div>
+      <h3 class="text-xl font-semibold mb-4">Onze Diensten</h3>
+      <ul class="space-y-2">
+        <li><a href="/diensten/biomechanisch-onderzoek" class="hover:text-primary transition">Biomechanisch Onderzoek</a></li>
+        <li><a href="/diensten/ganganalyse" class="hover:text-primary transition">Ganganalyse</a></li>
+        <li><a href="/diensten/podologische-zolen" class="hover:text-primary transition">Podologische Zolen</a></li>
+        <li><a href="/diensten/schoenadvies" class="hover:text-primary transition">Schoenadvies</a></li>
+        <li><a href="/diensten/zolen-veiligheidsschoenen" class="hover:text-primary transition">Zolen voor veiligheidsschoenen</a></li>
+      </ul>
+    </div>
+
+  </div>
+
+  <div class="max-w-6xl mx-auto px-4 mt-12 border-t border-gray-300 pt-6 text-center text-sm text-gray-500">
+    <p>&copy; {currentYear} Podologie Sole Solutions. Alle rechten voorbehouden.</p>
+    <p>Created by Dylan Ragé-Van Den Eynde</p>
   </div>
 </footer>
